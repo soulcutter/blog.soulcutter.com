@@ -29,3 +29,8 @@ to trigger them, however I -did- find that switching to
 
 Somewhat annoying considering this behavior "just worked" in capybara-webkit, but
 I suppose I'll have to live with it for now.
+
+For posterity here are the versions I hit this issue with:
+
+ * capybara: 2.0.2
+ * poltergeist: 1.1.0

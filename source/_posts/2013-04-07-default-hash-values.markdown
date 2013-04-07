@@ -44,3 +44,33 @@ options           # => {} we never assigned a value to our hash key at all!
 
 So go forth and use default hash values! Just be mindful to avoid changes to the
 default value object.
+
+Addendum
+--------
+
+I was reminded by [@samphippen](http://twitter.com/samphippen) and
+[@pete_higgins](https://twitter.com/pete_higgins) that there is a way to prevent
+mutations from affecting the default value, and that is to initialize your
+hash with a block:
+
+```ruby
+options = Hash.new { [] }
+
+options[:key] << 'thing'
+options[:key] # => []
+options[:unknown] # => []
+options # => {}
+
+options[:key] += ['thing']
+options[:key] += ['other thing']
+options # => {:key=>["thing", "other thing"]}
+```
+
+As you can see there is still a potential bug lurking above where we never
+actually assign a value to the hash key, however instead of returning a
+mutated instance for missing values what you get is the result of evaluating
+the block that is passed into the hash initializer.
+
+In the scheme of things this is a better solution for initializing a hash
+with a default value since the default will never get polluted by accidental
+mutations on the default object.

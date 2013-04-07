@@ -16,15 +16,17 @@ looks something like this:
 options = {}
 options[:key] ||= []
 options[:key] << 'thing'
-options # => {:key=>['thing']}
+options[:key] << 'other thing'
+options # => {:key=>["thing", "other thing"]}
 ```
 
-You can save yourself some lines of code by initializing your hash with a default value.
+You can save yourself the `||=` statement by initializing your hash with a default value.
 
 ```ruby
 options = Hash.new []
 options[:key] += ['thing']
-options # => {:key=>['thing']}
+options[:key] += ['other thing']
+options # => {:key=>["thing", "other thing"]}
 ```
 
 One small caveat is that accessing a hash at an unknown key will return

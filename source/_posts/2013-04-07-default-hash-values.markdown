@@ -6,8 +6,10 @@ comments: true
 categories:
 - ruby
 - stdlib
-- beginner
 ---
+
+UPDATE: Most of the advice in this post is superceded by [the followup
+which reflects the best solution for default hash values](/blog/2013/default-hash-values-the-right-way/).
 
 If you ever find yourself writing initialization for ruby hash values that
 looks something like this:

@@ -6,4 +6,4 @@ rm -rf ./public
 jekyll build -d ./public
 
 # Upload to server
-echo "scp -r public/* soulcutter@soulcutter.com:/srv/www"
+scp -r public/* soulcutter@soulcutter.com:/srv/www

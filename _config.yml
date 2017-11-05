@@ -42,7 +42,7 @@ plugins:
 pagination:
   enabled: true
   per_page: 3
-  permalink: '/page/:num/'
+  permalink: '/articles/page/:num/'
   title: ':title - Page :num'
   limit: 0
   sort_field: 'date'

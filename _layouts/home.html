@@ -17,6 +17,10 @@ layout: default
               {{ post.excerpt }}
             {% endif %}
           </span>
+          {% if post.excerpt != post.content %}
+          <a href="{{ site.baseurl }}{{ post.url }}">Read more&hellip;</a>
+          {% endif %}
+
         </div>
       {% endfor %}
     </div>

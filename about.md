@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About Soulcutter.com
+header_title: About
 permalink: /about/
 ---
 

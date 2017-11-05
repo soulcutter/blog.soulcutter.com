@@ -26,6 +26,8 @@ header_pages:
 
 date_format: "%B %d, %Y"
 
+post_preview_image: true
+
 show_social_icons: true
 twitter_username: soulcutter
 github_username:  soulcutter

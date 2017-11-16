@@ -9,7 +9,7 @@ method. There are many approaches to adding instrumentation to code
 in Ruby - whether it's using 3rd party services like New Relic and Datadog, using libraries like Rubyprof, or even plain
 old logging. Here I propose an unintrusive Ruby 2.0+ technique to add instrumentation to arbitrary methods without
 monkeypatching. If you want to jump to the proposed code without the explanation of how or why we got there, here's
-your [TLDR](#tldr).
+your [TLDR](/articles/instrumenting-ruby-methods.html#tldr).
 
 ### Instrumenting Code Directly Is Messy
 One thing that bothers me when adding custom instrumentation to code is how intrusive it can be. Sometimes the code
@@ -43,7 +43,8 @@ end
 
 OK, we have a contrived example! Now let's add some instrumentation!
 
-Here's an example of what New Relic instrumentation might look like.
+Here's an example of what [New Relic instrumentation](https://docs.newrelic.com/docs/agents/ruby-agent/customization/ruby-custom-instrumentation)
+might look like.
 
 {% highlight ruby %}
 class Sleeper

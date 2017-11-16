@@ -87,7 +87,7 @@ end
 module InstrumentedDeepSleep
   def deep_sleep
     value = nil
-    self.class.trace_execution_scoped(['sleep']) { value = super }
+    self.class.trace_execution_scoped(['deep_sleep']) { value = super }
     value
   end
   
@@ -139,7 +139,7 @@ class Intrumentation < Module
     
     define_method(method) do |*args, &block|
       value = nil
-      self.class.trace_execution_scoped(['sleep']) { value = super(*args, &block) }      
+      self.class.trace_execution_scoped([@method]) { value = super(*args, &block) }      
       value      
     end    
   end
@@ -218,8 +218,8 @@ I added some other niceties, such as the `inspect` method which is helpful for d
 a class's `ancestors`. You may not do that explicitly a lot, but it does come up - for example you might see this in
 a `pry` console when you do `ls Sleeper`.
 
-There's also an arbitrary label that can be used for the instrumentation, with some useful defaults. Not sure I need to
-justify that technically-speaking, it's just nice to have!
+There's also now an arbitrary label that can be used for the instrumentation, with some useful defaults. No need
+to justify that technically-speaking, it's just nice to have!
 
 ### There you have it
 

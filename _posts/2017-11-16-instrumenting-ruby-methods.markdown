@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Instrumenting Methods"
+title:  "Instrumenting Ruby Methods"
 date:   2017-11-16 12:00:00 -0500
 categories: ruby 
 ---
@@ -25,7 +25,7 @@ instrumentation working properly again.
  
 ### Not Convinced?
 If you've made it this far, you may be thinking *"Well that's just great. Instrumenting is useful, but don't add 
-instrumentation directly to the code. So what ARE you supposed to be doing?!"* So let's dive into a concrete example to
+instrumentation directly to the code. So what ARE you supposed to be doing?!"* So let's dive into real code example to
 illustrate.
 
 {% highlight ruby %}

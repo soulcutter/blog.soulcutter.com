@@ -105,7 +105,8 @@ Sleeper.prepend InstrumentedDeepSleep
 ### Why prepend?
 
 Prepending gives us a way to insert our module in the method lookup chain. When you call `Sleeper.sleep` it will resolve
-which `sleep` method to execute in the order of its `ancestors` array. Prepend puts a module first in the ancestor list,
+which `sleep` method to execute in the order of its `ancestors` array. [Prepend puts a module first in the ancestor
+list](https://medium.com/@leo_hetsch/ruby-modules-include-vs-prepend-vs-extend-f09837a5b073),
 before even the Class itself. The order of resolving methods in this example will then will be:
 
 1. InstrumentedDeepSleep
@@ -156,7 +157,7 @@ Sleeper.prepend Instrumentation.new(:deep_sleep)
 {% endhighlight %}
 
 Not bad! Now we don't have to define a `Module` for every method - the `Instrumentation` class will build modules for
-us based on the template we've given it.
+us based on the template we've provided.
 
 You may have noticed a tweak that was made to the invocation of `super` - because we are using the block form of
 `define_method` we must call `super` with arguments rather than the implied arguments of a bare call to `super`. If you
@@ -168,7 +169,9 @@ assume.
 In terms of usability, I think there are a couple of rough edges here. First-off, despite it being a language feature,
 a lot of people don't think to `prepend` modules, and even if it did make sense to a person it's not-so-natural to
 `prepend` a module/class that you instantiate. Maybe I'm too pessimistic about what folks are comfortable with?
-Lastly, how would you be able to apply this to a Class method? It IS possible, but it's not obvious. A more-polished
+Lastly, how would you be able to apply this to a Class method? It IS possible, but it's not obvious.
+
+A more-polished
 interface might look like this:
 
 <a id="tldr"/>

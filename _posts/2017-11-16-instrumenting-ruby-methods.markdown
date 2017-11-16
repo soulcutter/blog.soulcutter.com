@@ -4,7 +4,8 @@ title:  "Instrumenting Ruby Methods"
 date:   2017-11-16 12:00:00 -0500
 categories: ruby 
 ---
-**Instrumentation** is the addition of measurement to code. There are many approaches to adding instrumentation to code
+**Instrumentation** is the addition of measurement to code - for example timing how long Ruby is spending in a given
+method. There are many approaches to adding instrumentation to code
 in Ruby - whether it's using 3rd party services like New Relic and Datadog, using libraries like Rubyprof, or even plain
 old logging. Here I propose an unintrusive Ruby 2.0+ technique to add instrumentation to arbitrary methods without
 monkeypatching. If you want to jump to the proposed code without the explanation of how or why we got there, here's

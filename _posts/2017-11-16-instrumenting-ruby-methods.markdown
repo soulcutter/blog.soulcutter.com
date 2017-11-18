@@ -134,7 +134,7 @@ Also worth noting that we used the `prepended` hook to extend the New Relic code
 The only difference between the `Instrumented` modules is the name of the method to instrument. If only there was a way
 to write a template for this type of `Module`, and generate a new module every place we want to instrument. It
 so-happens there IS a handy way to do that - enter the
-[Module Builder pattern](dejimata.com/2017/5/20/the-ruby-module-builder-pattern).
+[Module Builder pattern](http://dejimata.com/2017/5/20/the-ruby-module-builder-pattern).
 
 {% highlight ruby %}
 class Intrumentation < Module

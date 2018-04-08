@@ -2,7 +2,8 @@
 layout: post
 title:  "The Local Variable Aversion Antipattern"
 date:   2018-03-08 23:00:00 -0500
-categories: ruby opinion 
+update_date:  2018-04-08 12:00:00 -0500
+categories: ruby opinion   
 ---
 In my experience writing Ruby, a strong aversion to using local variables is something I have noticed again and again.
 I would propose that in *most* scenarios this has several underrecognized drawbacks. The solution is easy:
@@ -100,7 +101,7 @@ end
 This has all the same problems I already talked about, plus it adds statefulness and unclear method dependencies into
 the mix.
 
-It's harder to reason about code with non-local state. Since this memoization could be `nil`, it now depends on a
+It's harder to reason about state outside of the lexical scope. Since this memoization could be `nil`, it now depends on a
 nil-check occurring before subsequent calls to `client` since `nil` is falsy, and therefore the database call could
 occur multiple times despite the attempt at memoization. We can fix that, but it doesn't make the code more-clear:
 

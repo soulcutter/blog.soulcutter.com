@@ -62,3 +62,7 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - bin/
+
+text:
+  post:
+    updated: Last Updated

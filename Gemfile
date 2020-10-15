@@ -8,7 +8,7 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 3.6.0"
+gem "jekyll", "~> 3.6"
 gem "pixyll_ashawley", "~> 2.9" # jekyll theme
 
 
@@ -25,3 +25,5 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+
+gem "kramdown-parser-gfm", "~> 1.1"

@@ -43,6 +43,8 @@ Without re-assembling I went ahead and tested it by connecting the board to my c
 
 Now that you've seen a couple pics I'll let you in on [the full gallery with more pictures of the soldered side of the PCB](https://imgur.com/gallery/02Jii3Q). Your wincing muscles are about to get a workout.
 
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/02Jii3Q"><a href="//imgur.com/a/02Jii3Q">Fixing a non-registering key (soldering problem) on my White Fox keyboard</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
 If you read the comments alongside the pics, my shame is palpable but I had a hard time articulating exactly why these look so bad to me. I *do* have some soldering experience, but I hadn't picked up a soldering iron in over 20 years. I know these are bad, but dredging up my basic knowledge enough to even explain why was tough. I've since had the opportunity to share these pics with other keyboard nerds and they really helped me to explain what's going on here, so I'll share a bit of that here.
 
 A good solder joint on a PCB<sup><small>[3](#keyboard-terminology)</small></sup> looks mirror-shiny with a smooth, concave shape that covers the metal pad (shape-wise, for circular pads like these, a lot like a Hershey's Kiss). Most of these are.. not that!

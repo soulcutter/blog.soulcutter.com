@@ -3,10 +3,14 @@ layout: post
 title:  "The Local Variable Aversion Antipattern"
 date:   2018-03-08 23:00:00 -0500
 update_date:  2018-04-08 12:00:00 -0500
-categories: ruby opinion   
+categories: ruby opinion
+preview_image: reading_non_linear_code.png
+summary: "In my experience writing Ruby, a strong aversion to using local variables is something I have noticed again and again.
+          I would propose that in most scenarios this has several under-recognized drawbacks. The solution is easy:
+          use local variables."   
 ---
 In my experience writing Ruby, a strong aversion to using local variables is something I have noticed again and again.
-I would propose that in *most* scenarios this has several underrecognized drawbacks. The solution is easy:
+I would propose that in *most* scenarios this has several under-recognized drawbacks. The solution is easy:
 **use local variables**. 
 
 ### Methods take more lines

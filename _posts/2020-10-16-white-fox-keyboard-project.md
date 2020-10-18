@@ -2,7 +2,9 @@
 layout: post
 title:  "White Fox Keyboard Project"
 date:   2020-10-16 12:00:00 -0500
-categories: keyboard, electronics
+categories: keyboard electronics
+summary: "Write-up of assembling a White Fox mechanical keyboard from a beginner's perspective"
+preview_image: white_fox/finished_keyboard.jpg
 ---
 
 I wrote this on a forum that was not-necessarily technical, so I tried to be clear and not make assumptions about mechanical keyboard or electronics knowledge. The underlying theme is that this is an approachable project for beginners, like myself. Alright, strap in: this is a nerdy hobby.
@@ -22,6 +24,8 @@ Time for [some pictures](https://imgur.com/gallery/RvUlily)! Disclaimer: I didn�
 If you’ve read all this, looked at the pictures, then you may notice what I haven’t spoken to yet (even in pictures): **the soldering**. Why? Well… I'm not proud of that work. When I was taking pictures and putting together that album I purposefully omitted pictures of that to hide my shame.
 
 The thing I *am* proud of is that **I did it** and that **it worked** - success, right? Almost.
+
+![Completed White Fox keyboard sitting on a desk next to a soldering iron, blue sponge, and a coil of soldering wire]({{ "/images/white_fox/finished_keyboard.jpg" | absolute_url }})
 
 It took an hour of me "driving" my new keyboard before I noticed something. There was a single key that wouldn't register - the `6` number key. Dang, I had to open the keyboard back up and fix a bad solder joint. There were so many bad solders it must be that, I thought. No problem, I was expecting something like this, and I even had extra switches if needed. A day later I opened the keyboard back up to fix the problem.
 

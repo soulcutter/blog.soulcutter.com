@@ -43,7 +43,7 @@ plugins:
 # Pagination Settings
 pagination:
   enabled: true
-  per_page: 3
+  per_page: 7
   permalink: '/articles/page/:num/'
   title: ':title - Page :num'
   limit: 0

@@ -3,10 +3,10 @@ layout: post
 title:  "My Dad's Hamburgers"
 date:   2020-11-21 12:00:00 -0500
 categories: food cooking
-summary: "I think I make pretty good hamburgers. My 'recipe' is something my dad taught me. It's simple but effective - there are definitely more-refined burgers out there, but this is the KISS method way to make a good burger. Follow these instructions:"
+summary: "I think I make pretty good hamburgers. My 'recipe' is something my dad taught me. It's simple but effective – there are definitely more-refined burgers out there, but this is the KISS method way to make a good burger. Follow these instructions:"
 ---
 
-I think I make Pretty Good Hamburgers. My 'recipe' is something my dad taught me. It's simple but effective &emdash; there are definitely more-refined burgers out there, but this is the KISS method way to make a good burger. Follow these instructions:
+I think I make Pretty Good Hamburgers. My 'recipe' is something my dad taught me. It's simple but effective – there are definitely more-refined burgers out there, but this is the [Keep It Simple](https://wiki.c2.com/?KeepItSimple) way to make a good burger. Follow these instructions:
 
 1. Obtain fresh 80/20 (80% lean, 20% fat) ground beef
     * 1 pound makes 4 patties, 2 pounds makes 7 patties. The math doesn't make sense, it just is.

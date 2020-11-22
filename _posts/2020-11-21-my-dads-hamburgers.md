@@ -8,9 +8,11 @@ summary: "I think I make pretty good hamburgers. My 'recipe' is something my dad
 
 I think I make Pretty Good Hamburgers. My 'recipe' is something my dad taught me. It's simple but effective – there are definitely more-refined burgers out there, but this is the [Keep It Simple](https://wiki.c2.com/?KeepItSimple) way to make a good burger. Follow these instructions:
 
-1. Obtain fresh 80/20 (80% lean, 20% fat) ground beef
-    * 1 pound makes 4 patties, 2 pounds makes 7 patties. The math doesn't make sense, it just is.
-2. Separate beef into patties that are shade more than a quarter-pound (140 grams, which is approximately 5 ounces)
+1. Obtain fresh 80/20 (80% lean, 20% fat) ground beef.
+    * **1 pound** makes **4 patties**.
+    * **2 pounds** makes **7 patties**.
+    * The math doesn't make sense, it just is.
+2. Separate beef into patties that are shade more than a quarter-pound (140 grams, which is approximately 5 ounces).
     * They don't have to be perfect weight – if you can only do 110 grams (which is near 4 ounces), that's fine.
     * They'll look a little large. They shrink.
     * Minimal fuss. Don't over-smush the meat. If you can preserve the grain from how the beef was ground it gives the hamburger a nice texture and, when cooked, it stays together better.

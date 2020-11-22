@@ -18,10 +18,11 @@ I think I make Pretty Good Hamburgers. My 'recipe' is something my dad taught me
     * Minimal fuss. Don't over-smush the meat. If you can preserve the grain from how the beef was ground it gives the hamburger a nice texture and, when cooked, it stays together better.
     * Form either a round disc or a square disc.
     * Use you thumbs to put a noticeable divot in the center of each patty. It helps the patty stay flatter as it contracts.
-3. Season with Lawry’s Seasoned Salt, a thin amount over the entire surface area of both sides.
+3. Season with [Lawry’s Seasoned Salt](https://www.mccormick.com/lawrys/flavors/spice-blends/seasoned-salt), a thin amount over the entire surface area of both sides.
     * This is the most-noticeable way to affect the flavor of the burger. Too much salt and it's a salty burger. Too little and your burger is bland. You'll want to experiment to find your right amount.
 4. Sprinkle about 1 teaspoon of Worcestershire sauce on each patty. A couple of good dashes if you're using a sauce dispenser like [Lea & Perrins](https://www.leaperrins.com/)'.
-    * This boosts the burger's umami flavor. Some sauce brands have MSG added.
+    * This boosts the burger's umami flavor.
+    * Some sauce brands have MSG added.
 5. Cook it. There's a million different ways out there to cook things; you do you.
     * I like my burgers done *medium-rare*, which is 60º Celsius or 135º Fahrenheit internal temperature.
 6. You need a bun, find your favorite kind. Place cooked patty in bun.

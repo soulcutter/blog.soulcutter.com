@@ -156,7 +156,7 @@ You might need to be convinced that Conversion Wrappers THEMSELVES are a worthwh
 
 That's awesome! I'd love to hear more about it. If you've got an article I can link to, I'd be sure to put it in an addendum here. 
 
-## Adendum: Some neat use cases have popped up!
+## Addendum: Some neat use cases have popped up!
 
 I am very late updating this post, because almost immediately I got a few examples of other places where people have found refinements useful!
 

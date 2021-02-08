@@ -162,4 +162,4 @@ I am very late updating this post, because almost immediately I got a few exampl
 
 ### Colorizing log messages
 
-<a href="https://dev.to/rolandstuder/ruby-refinements-have-a-second-good-use-case-42">Roland Stuter responded with a combination of procs, instance_eval, and refining the String class</a> - when you put it all together, it's a handy way to express decorated output!
+<a href="https://dev.to/rolandstuder/ruby-refinements-have-a-second-good-use-case-42jk">Roland Stuter responded with a combination of procs, instance_eval, and refining the String class</a> - when you put it all together, it's a handy way to express decorated output!

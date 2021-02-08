@@ -3,6 +3,7 @@ layout: post
 title:  "Ruby Refinements Have One Good Use Case"
 date:   2020-11-11 12:00:00 -0500
 categories: ruby programming
+update_date:  2021-02-08 12:00:00 -0500
 summary: "After 10 years of refinements I know of a single (rare) good use-case for them"
 ---
 
@@ -154,3 +155,11 @@ You might need to be convinced that Conversion Wrappers THEMSELVES are a worthwh
 ## Aha, but I have a different great use case!
 
 That's awesome! I'd love to hear more about it. If you've got an article I can link to, I'd be sure to put it in an addendum here. 
+
+## Adendum: Some neat use cases have popped up!
+
+I am very late updating this post, because almost immediately I got a few examples of other places where people have found refinements useful!
+
+### Colorizing log messages
+
+<a href="https://dev.to/rolandstuder/ruby-refinements-have-a-second-good-use-case-42">Roland Stuter responded with a combination of procs, instance_eval, and refining the String class</a> - when you put it all together, it's a handy way to express decorated output!

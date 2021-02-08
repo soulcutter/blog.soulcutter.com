@@ -6,4 +6,5 @@ rm -rf ./public
 bundle exec jekyll build -d ./public
 
 # Upload to server
-scp -r public/* soulcutter@soulcutter.com:/srv/www
+#scp -r public/* soulcutter@soulcutter.com:/srv/www
+rsync -a ./public/ soulcutter@soulcutter.com:/srv/www/

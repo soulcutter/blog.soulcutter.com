@@ -16,9 +16,9 @@
 title: Soulcutter
 # email: soulcutter@soulcutter.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Soulcutter's ramblings about Ruby, programming, and whatever else comes to mind.
+  Ramblings about whatever comes to mind.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://www.soulcutter.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://www.soulcutter.com" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: /articles/:title.html
 header_pages:
@@ -34,10 +34,10 @@ github_username:  soulcutter
 
 # Build settings
 markdown: kramdown
-theme: pixyll_ashawley
 plugins:
   - jekyll-feed
   - jekyll-paginate-v2
+  - jekyll-postcss
 
 
 # Pagination Settings

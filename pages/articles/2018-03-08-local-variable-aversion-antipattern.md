@@ -36,7 +36,7 @@ Another aspect of readability is the ability of a person reading the code to fol
 trivially follow a chain of methods and unroll that into a discrete sequence of instructions. PEOPLE, however, have a
 MUCH easier time reading in a single top-to-bottom sweep. Here's an example:
 
-{% highlight ruby %}
+```ruby
 class ClientsController < ApplicationController
   def show
     client = Client.find(params[:id])
@@ -53,7 +53,7 @@ class ClientsController < ApplicationController
     ClientSerializer.new(client)
   end
 end
-{% endhighlight %}
+```
 
 If you object that this is a contrived example, I took this almost verbatim from a real codebase. I actually simplified 
 it for the sake of brevity. It doesn't take a lot of imagination for this to be a part of a larger class which only
@@ -65,7 +65,7 @@ a person's eyes must go in order to read this code and fully understand what the
 I concede that programmers get good at doing this sort of thing, but nevertheless I am convinced that it's far easier to
 read that same code in this form:
 
-{% highlight ruby %}
+```ruby
 class ClientsController < ApplicationController
   def show
     client = Client.find(params[:id])
@@ -73,7 +73,7 @@ class ClientsController < ApplicationController
     render json: client_serializer.serialize(params[:fields])
   end
 end
-{% endhighlight %}
+```
 
 If you're counting that's 7 lines of code rather than 16 lines of code. The furthest your eye might have to jump up/down
 is a single line. I cheated slightly in that I skipped creating a local variable entirely for `param[:fields]`, because
@@ -83,7 +83,7 @@ sometimes when you inline things you realize how little the label of a variable 
 
 Another version of this that I see a lot is using it for sharing memoized instances between methods.
 
-{% highlight ruby %}
+```ruby
 class ClientsController < ApplicationController
   def show
     raise ActiveRecord::RecordNotFound unless client.present?
@@ -100,7 +100,7 @@ class ClientsController < ApplicationController
     @client_serializer ||= ClientSerializer.new(client)
   end
 end
-{% endhighlight %}
+```
 
 This has all the same problems I already talked about, plus it adds statefulness and unclear method dependencies into
 the mix.
@@ -109,19 +109,19 @@ It's harder to reason about state outside of the lexical scope. Since this memoi
 nil-check occurring before subsequent calls to `client` since `nil` is falsy, and therefore the database call could
 occur multiple times despite the attempt at memoization. We can fix that, but it doesn't make the code more-clear:
 
-{% highlight ruby %}
+```ruby
 def client
   return @client if defined?(@client)
   @client = Client.find_by(id: params[:id])
 end
-{% endhighlight %}
+```
 
 Speaking of complexity, does `client_serializer` make a database call? Maybe. It depends on whether or not something
 populated the memoized variable. Also why are we memoizing the serializer? Are multiple things using it? Is it expensive
 to create? Well, it might be expensive if it has to make a database call. This code is just plain murkier than the
 alternative:
 
-{% highlight ruby %}
+```ruby
 class ClientsController < ApplicationController
   def show
     client = Client.find_by(id: params[:id])
@@ -130,7 +130,7 @@ class ClientsController < ApplicationController
     render json: client_serializer.serialize(params[:fields])
   end
 end
-{% endhighlight %}
+```
 
 Representing it this way might even make it clearer that you never need to allow a `nil` client and could use
 ActiveRecord's `find` or `find_by!` to tighten this up. If you were looking at the `client` memoizing method

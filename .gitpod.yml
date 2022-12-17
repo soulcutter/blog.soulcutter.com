@@ -15,16 +15,18 @@ ports:
     onOpen: open-preview
     
 tasks:
-  - name: Install Dependencies
+  - name: Build Site
     init: >
       bundle install &&
       gp sync-done install_dependencies
-    command: bundle exec jekyll server -p 3000 -H 0.0.0.0
+    command: bundle exec bin/build.rb --watch
 
-  #- name: Webserver
-  #  init: gp sync-await install_dependencies
-  #  command: bundle exec jekyll server -p 3000
+  - name: Webserver
+    init: gp sync-await install_dependencies
+    command: ruby -run -e httpd dist
 
   # - name: TailwindCSS
   #  init: gp sync-await install_dependencies
   #  command:  tailwindcss:watch
+
+  

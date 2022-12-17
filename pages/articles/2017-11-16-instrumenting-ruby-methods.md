@@ -9,7 +9,7 @@ method. There are many approaches to adding instrumentation to code
 in Ruby - whether it's using 3rd party services like New Relic and Datadog, using libraries like Rubyprof, or even plain
 old logging. Here I propose an unintrusive Ruby 2.0+ technique to add instrumentation to arbitrary methods. If you want
 to jump straight to the proposed code without the explanation of how or why we got there, here's
-your [TLDR](/articles/instrumenting-ruby-methods.html#tldr).
+your [TLDR](/articles/instrumenting-ruby-methods/#tldr).
 
 ### Instrumenting Code Directly Is Messy
 One thing that bothers me when adding custom instrumentation to code is how intrusive it can be. Sometimes the code
@@ -29,7 +29,7 @@ If you've made it this far, you may be thinking *"Well that's just great. Instru
 instrumentation directly to the code. So what ARE you supposed to be doing?!"* So let's dive into real code example to
 illustrate.
 
-{% highlight ruby %}
+```ruby
 class Sleeper
   def sleep
     Kernel.sleep 1
@@ -39,14 +39,14 @@ class Sleeper
     Kernel.sleep 2
   end
 end
-{% endhighlight %}
+```
 
 OK, we have a contrived example! Now let's add some instrumentation!
 
 Here's an example of what [New Relic instrumentation](https://docs.newrelic.com/docs/agents/ruby-agent/customization/ruby-custom-instrumentation)
 might look like.
 
-{% highlight ruby %}
+```ruby
 class Sleeper
   extend ::NewRelic::Agent::MethodTracer
 
@@ -66,7 +66,7 @@ class Sleeper
     value
   end
 end
-{% endhighlight %}
+```
 
 There's a lot of repetition in there, but also this add methods to the Sleeper class and there are New
 Relic-specific method calls alongside the code that's being instrumented.
@@ -74,7 +74,7 @@ Relic-specific method calls alongside the code that's being instrumented.
 Let's revert back to the original implementation of `Sleeper`. How might we be able to add instrumentation WITHOUT
 changing the `Sleeper` class? Here's a first pass:
 
-{% highlight ruby %}
+```ruby
 module InstrumentedSleep
   def sleep
     value = nil
@@ -101,7 +101,7 @@ end
 
 Sleeper.prepend InstrumentedSleep
 Sleeper.prepend InstrumentedDeepSleep
-{% endhighlight %}
+```
 
 ### Why prepend?
 
@@ -136,7 +136,7 @@ to write a template for this type of `Module`, and generate a new module every p
 so-happens there IS a handy way to do that - enter the
 [Module Builder pattern](http://dejimata.com/2017/5/20/the-ruby-module-builder-pattern).
 
-{% highlight ruby %}
+```ruby
 class Intrumentation < Module
   def initialize(method)
     @method = method
@@ -155,7 +155,7 @@ end
 
 Sleeper.prepend Instrumentation.new(:sleep)
 Sleeper.prepend Instrumentation.new(:deep_sleep)
-{% endhighlight %}
+```
 
 Not bad! Now we don't have to define a `Module` for every method - the `Instrumentation` class will build modules for
 us based on the template we've provided.
@@ -175,8 +175,7 @@ Lastly, how would you be able to apply this to a Class method? It IS possible, b
 A more-polished
 interface might look like this:
 
-<a id="tldr"/>
-{% highlight ruby %}
+```ruby
 module Instrumentor
   def self.instrument_method(klass, method, label="#{klass.name}.#{method}")
     unless klass.respond_to?(method)
@@ -215,7 +214,7 @@ end
 Instrumenter.instrument_method(Sleeper, :sleep)
 Instrumenter.instrument_method(Sleeper, :deep_sleep)
 Instrumenter.instrument_class_method(Sleeper, :new)
-{% endhighlight %}
+```
 
 The way we are able to wrap class methods is to pass `klass.singleton_class` as the class used for prepending the
 instrumentation module.

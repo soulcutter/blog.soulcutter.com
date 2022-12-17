@@ -15,7 +15,7 @@ of using memoization for *falsy* values, and it seems a topic worth talking abou
 
 Consider that the following methods have the same behavior:
 
-{% highlight ruby %}
+```ruby
 def foo_or_equal
   @foo ||= calculate_foo
 end
@@ -28,11 +28,11 @@ def foo_multiline
   return @foo if @foo
   @foo = calculate_foo
 end
-{% endhighlight %}
+```
 
 When `calculate_foo` returns a *truthy* object - anything but `nil` or `false` - there's no problem at all. Calling any
 one of those methods repeatedly will result in `calculate_foo` only being called
-once<sup><small>[&dagger;](#footnotes)</small></sup>.
+once[&dagger;](#footnotes).
 
 When `calculate_foo` returns a *falsy* object - `nil` or `false` - it stores that value. Every subsequent call will
 invoke `calculate_foo` another time and re-store the falsy value. If that calculation is expensive - makes a database
@@ -43,12 +43,12 @@ was intended to prevent (but didn't).
 
 Now that we've identified the problem, how about a solution?
 
-{% highlight ruby %}
+```ruby
 def foo_foolproof
   return @foo if defined?(@foo)
   @foo = calculate_foo
 end
-{% endhighlight %}
+```
 
 That's all there is to it. Calling `defined?(@foo)` checks whether the expression `@foo` exists, though it is a bit
 special since it *does not actually evaluate the expression*. It looks like a method, but is actually a Ruby keyword.
@@ -60,7 +60,7 @@ values, it's longer, more-boilerplate, and less-readable.
 
 Here's a potential way to address this:
 
-{% highlight ruby %}
+```ruby
 class Memoizer < Module
   def initialize(method)
     define_method(method) do
@@ -84,7 +84,7 @@ class Foo
   end
   memoize :foo
 end
-{% endhighlight %} 
+``` 
 
 It's worth pointing out that this approach only handles memoizing methods with no arguments. This could be adapted in
 order to handle arguments - in fact you can find some links in this articles footnotes that go into that.

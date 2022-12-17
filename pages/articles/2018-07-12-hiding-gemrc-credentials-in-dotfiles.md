@@ -25,11 +25,11 @@ end up with the union of all sources, you end up with whatever sources are defin
 
 Armed with that knowledge, I added this snippet to my shell initialization scripts:
 
-{% highlight bash %}
+```bash
 if [ -f "${HOME}/.gemrc.local" ]; then
   export GEMRC="${HOME}/.gemrc.local"
 fi
-{% endhighlight %}
+```
 
 I manually moved all the sources, including the sources containing auth, to that file. Then I removed the sensitive
 sources from my tracked `~/.gemrc` file, and boom I have my credentials working, but I also have a tracked file for

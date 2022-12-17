@@ -11,15 +11,13 @@ I wrote this on a forum that was not-necessarily technical, so I tried to be cle
 
 I’m a programmer and engineering manager, so I’m on a computer all day. The keyboard is your interface to the computer and so naturally there’s a hobby around building and customizing your personal keyboard. You can buy pre-built keyboards to your specifications or you can buy kits that need varying levels of assembly. If you’re deep down the rabbit hole you can custom design your own or get into the production side. The more work you're willing put in to the assembly process, the more customization possibilities are available to you for your keyboard. As a hobby it’s also enjoyable to *make* something with your own hands and effort.
 
-To start, I already had for myself a pre-built keyboard that has hot-swappable mechanical switches<sup><small>[2](#keyboard-terminology)</small></sup>. Hot-swappable means that you can change out mechanical switches without soldering. I decided to go one step further into the hobby and obtain a keyboard kit (a case<sup><small>[4](#keyboard-terminology)</small></sup>, a PCB<sup><small>[3](#keyboard-terminology)</small></sup>) that required soldering the switches into the board.  I did my research and shopped around, eventually ordering all the components I needed: the kit ([Input Club’s White Fox (Aria layout)](https://input.club/whitefox/)), mechanical switches<sup><small>[2](#keyboard-terminology)</small></sup> ([Holy Pandas](https://drop.com/buy/drop-invyr-holy-panda-mechanical-switches?utm_source=linkshare&referer=YUZ2PB)), and key caps<sup><small>[1](#keyboard-terminology)</small></sup>  ([Zambumon’s MT3 profile, Serika colorway](https://drop.com/buy/drop-zambumon-mt3-serika-custom-keycap-set?utm_source=linkshare&referer=YUZ2PB)).
+To start, I already had for myself a pre-built keyboard that has hot-swappable mechanical switches[2](#keyboard-terminology). Hot-swappable means that you can change out mechanical switches without soldering. I decided to go one step further into the hobby and obtain a keyboard kit (a case[4](#keyboard-terminology), a PCB[3](#keyboard-terminology)) that required soldering the switches into the board.  I did my research and shopped around, eventually ordering all the components I needed: the kit ([Input Club’s White Fox (Aria layout)](https://input.club/whitefox/)), mechanical switches[2](#keyboard-terminology) ([Holy Pandas](https://drop.com/buy/drop-invyr-holy-panda-mechanical-switches?utm_source=linkshare&referer=YUZ2PB)), and key caps[1](#keyboard-terminology)  ([Zambumon’s MT3 profile, Serika colorway](https://drop.com/buy/drop-zambumon-mt3-serika-custom-keycap-set?utm_source=linkshare&referer=YUZ2PB)).
 
 The way a lot of these individual components are sold is through group buys where you commit to paying for an item before they are made. If enough people commit to buy them, they get manufactured. This means you must plan far ahead, as it may take months to for all the parts to arrive. Oh, and small batch manufacturing isn’t cheap either.
 
 Anyway, months later I had everything ready and waiting for me to put together. Naturally, I procrastinated; it sat in a small stack of boxes next to my work desk for 6 more months. Finally, in early October 2020 I recommitted and put everything together.
 
 Time for [some pictures](https://imgur.com/gallery/RvUlily)! Disclaimer: I didn’t take a whole lot of pics, or focus on photo quality, because I didn’t want to distract myself from the "DOING."
-
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/RvUlily"><a href="//imgur.com/a/RvUlily">I put together a White Fox (aria) mechanical keyboard with new Holy Panda switches and MT3 Serika key caps</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 If you’ve read all this, looked at the pictures, then you may notice what I haven’t spoken to yet (even in pictures): **the soldering**. Why? Well… I'm not proud of that work. When I was taking pictures and putting together that album I purposefully omitted pictures of that to hide my shame.
 
@@ -39,15 +37,13 @@ Ignoring the bad soldering for a moment, you can clearly see the problem to the 
 
 ![Back of PCB with an arrow pointing to a newly-soldered pin next to the label S7]({{ "/images/white_fox/S7_problem_fixed.jpg" | absolute_url }})
 
-Without re-assembling I went ahead and tested it by connecting the board to my computer and checking the `6` key. It works now, hurray! One lesson I took away here is that soldering a keyboard is more-forgiving than you might assume - I fully expected there to be more non-functioning switches<sup><small>[2](#keyboard-terminology)</small></sup>, but surprisingly to me they all worked fine *if they were soldered at-all*.
+Without re-assembling I went ahead and tested it by connecting the board to my computer and checking the `6` key. It works now, hurray! One lesson I took away here is that soldering a keyboard is more-forgiving than you might assume - I fully expected there to be more non-functioning switches[2](#keyboard-terminology), but surprisingly to me they all worked fine *if they were soldered at-all*.
 
 Now that you've seen a couple pics I'll let you in on [the full gallery with more pictures of the soldered side of the PCB](https://imgur.com/gallery/02Jii3Q). Your wincing muscles are about to get a workout.
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/02Jii3Q"><a href="//imgur.com/a/02Jii3Q">Fixing a non-registering key (soldering problem) on my White Fox keyboard</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-
 If you read the comments alongside the pics, my shame is palpable but I had a hard time articulating exactly why these look so bad to me. I *do* have some soldering experience, but I hadn't picked up a soldering iron in over 20 years. I know these are bad, but dredging up my basic knowledge enough to even explain why was tough. I've since had the opportunity to share these pics with other keyboard nerds and they really helped me to explain what's going on here, so I'll share a bit of that here.
 
-A good solder joint on a PCB<sup><small>[3](#keyboard-terminology)</small></sup> looks mirror-shiny with a smooth, concave shape that covers the metal pad (shape-wise, for circular pads like these, a lot like a Hershey's Kiss). Most of these are.. not that!
+A good solder joint on a PCB[3](#keyboard-terminology) looks mirror-shiny with a smooth, concave shape that covers the metal pad (shape-wise, for circular pads like these, a lot like a Hershey's Kiss). Most of these are.. not that!
 
 Ross Reinhardt of [IndyHackers](http://www.indyhackers.org/)' `#mech_keys` Slack channel's analysis was one of the best, most-concise explanations:
 
@@ -78,9 +74,7 @@ If this inspires any folks to try their hand at anything similar my recommendati
 
 #### keyboard terminology
 
-<dl>
-  <dt>1. key caps</dt><dd><small>The plastic tops of your keys, typically having the letters/numbers/functions printed on them.</small></dd>
-  <dt>2. switches</dt><dd><small>The springy/clicky thing sitting under the key caps giving the keys their "feel". This is the moving part.</small></dd>
-  <dt>3. PCB</dt><dd><small><b>P</b>rinted <b>C</b>ircuit <b>B</b>oard. This is the "brains" of the keyboard, switches connect to the board and then the board sits in the case. The PCB has one or more ports to connect the keyboard to computers or other peripherals.</small></dd>
-  <dt>4. case</dt><dd><small>The housing of the keyboard - mostly aesthetic, but contributes to the feel and sound of a keyboard.</small></dd>
-</dl>
+1. **key caps**: The plastic tops of your keys, typically having the letters/numbers/functions printed on them.
+1. **switches**: The springy/clicky thing sitting under the key caps giving the keys their "feel". This is the moving part.
+1. **PCB**: **P**rinted **C**ircuit **B**oard. This is the "brains" of the keyboard, switches connect to the board and then the board sits in the case. The PCB has one or more ports to connect the keyboard to computers or other peripherals.
+1. **Case**: The housing of the keyboard - mostly aesthetic, but contributes to the feel and sound of a keyboard.

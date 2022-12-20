@@ -1,4 +1,4 @@
-FROM gitpod/workspace-ruby-3.0
+FROM gitpod/workspace-full
 USER gitpod
 
 RUN _ruby_version=ruby-3.1.2 \

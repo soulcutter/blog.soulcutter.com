@@ -10,8 +10,8 @@ vscode:
     - hbenl.vscode-test-explorer@2.21.1
 
 ports:
-  # Rails server
-  - port: 3000
+  # Web server
+  - port: 8080
     onOpen: open-preview
     
 tasks:

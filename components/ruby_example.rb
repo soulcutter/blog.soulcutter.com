@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Components
-  class Example < Phlex::HTML
+  class RubyExample < Phlex::HTML
     def initialize
       @sandbox = Module.new
     end

@@ -46,8 +46,7 @@ module Components
 
               nav(class: "text-stone-500 font-medium") do
                 ul(class: "flex space-x-8") do
-                  li { a(href: "https://github.com/sponsors/joeldrapper") { "💖️ Sponsor" } }
-                  li { a(href: "https://github.com/joeldrapper/phlex") { "GitHub" } }
+                  li { a(href: "https://github.com/soulcutter") { "GitHub" } }
                 end
               end
             end
@@ -62,7 +61,7 @@ module Components
               end
 
               footer class: "border-t p-20 flex justify-center text-stone-500 text-lg font-medium" do
-                a(href: "https://github.com/sponsors/joeldrapper") { "Sponsor this project 💖" }
+                "© Copyright 2017-2023 Bradley Schaefer"
               end
             end
           end

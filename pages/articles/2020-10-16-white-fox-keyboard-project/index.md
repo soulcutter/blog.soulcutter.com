@@ -23,7 +23,7 @@ If you’ve read all this, looked at the pictures, then you may notice what I ha
 
 The thing I *am* proud of is that **I did it** and that **it worked** - success, right? Almost.
 
-![Completed White Fox keyboard sitting on a desk next to a soldering iron, blue sponge, and a coil of soldering wire]({{ "/images/white_fox/finished_keyboard.jpg" | absolute_url }})
+![Completed White Fox keyboard sitting on a desk next to a soldering iron, blue sponge, and a coil of soldering wire](white_fox/finished_keyboard.jpg)
 
 It took an hour of me "driving" my new keyboard before I noticed something. There was a single key that wouldn't register - the `6` number key. Dang, I had to open the keyboard back up and fix a bad solder joint. There were so many bad solders it must be that, I thought. No problem, I was expecting something like this, and I even had extra switches if needed. A day later I opened the keyboard back up to fix the problem.
 
@@ -31,11 +31,11 @@ It took an hour of me "driving" my new keyboard before I noticed something. Ther
 
 At this point I also decided "what the hell," that I will take some pictures. I came around to the justifying that as embarrassing as it may be, sharing pictures of a job poorly-done might help this whole thing feel more-accessible to beginners like myself! I don't need to front that I'm great at everything - it's ok to be a beginner, and it's ok to have learning experiences. So. I opened up the keyboard, looked at the soldered connections on the back of the board and here's what I saw:
 
-![Back of PCB with an arrow pointing to an un-soldered pin next to the label S7]({{ "/images/white_fox/S7_problem.jpg" | absolute_url }})
+![Back of PCB with an arrow pointing to an un-soldered pin next to the label S7](white_fox/S7_problem.jpg)
 
 Ignoring the bad soldering for a moment, you can clearly see the problem to the bottom-right of `S7`. I completely missed soldering one of the switch contacts! THAT'S an easy fix - just have to solder it. Even "badly" would be better than "not at all."
 
-![Back of PCB with an arrow pointing to a newly-soldered pin next to the label S7]({{ "/images/white_fox/S7_problem_fixed.jpg" | absolute_url }})
+![Back of PCB with an arrow pointing to a newly-soldered pin next to the label S7](white_fox/S7_problem_fixed.jpg)
 
 Without re-assembling I went ahead and tested it by connecting the board to my computer and checking the `6` key. It works now, hurray! One lesson I took away here is that soldering a keyboard is more-forgiving than you might assume - I fully expected there to be more non-functioning switches[2](#keyboard-terminology), but surprisingly to me they all worked fine *if they were soldered at-all*.
 
@@ -53,7 +53,7 @@ Ross Reinhardt of [IndyHackers](http://www.indyhackers.org/)' `#mech_keys` Slack
 
 He nails a lot of what went-on here, and even a big part of the why - I skimped on a cheap $15 soldering iron, and part of my bumbling inexperience led to the stylus-shaped tip corroding into a nub that was extremely hard to work with by the end of the project.
 
-![soldering iron tip that has corroded down to a nub]({{ "/images/white_fox/soldering_iron_corroded_tip.jpg" | absolute_url }})
+![soldering iron tip that has corroded down to a nub](white_fox/soldering_iron_corroded_tip.jpg)
 
 I'd have made some bad solders no matter what, especially in the first handful as I was fumbling to recall technique I'd learned 20+ years ago, but I gave myself a handicap by cheaping out on that soldering iron. A practiced hand could have laid down great solders with that iron, but I was far from that and a higher-quality more-forgiving iron would have helped me some.
 

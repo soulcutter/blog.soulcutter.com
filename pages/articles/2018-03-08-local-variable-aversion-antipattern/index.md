@@ -60,7 +60,7 @@ it for the sake of brevity. It doesn't take a lot of imagination for this to be 
 makes the amount of indirection more confusing. When I talk about the ability for a human to read this, here is where
 a person's eyes must go in order to read this code and fully understand what the `show` method does:
 
-![Reading non-linear code]({{ "/images/reading_non_linear_code.png" | absolute_url }})
+![Illustration of reading non-linear code](reading_non_linear_code.png "Reading non-linear code")
 
 I concede that programmers get good at doing this sort of thing, but nevertheless I am convinced that it's far easier to
 read that same code in this form:

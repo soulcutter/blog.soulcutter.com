@@ -1,43 +1,38 @@
-# frozen_string_literal: true
-
 class PageBuilder
-	def self.build_all
-		FileUtils.mkdir_p("#{__dir__}/dist")
+	def self.build_all(source_directory = "#{__dir__}/pages", destination_directory = "#{__dir__}/dist")
+		FileUtils.mkdir_p(destination_directory)
 
-		# TODO fingerprint assets and expose asset lookup in view_context
-		FileUtils.cp_r("#{__dir__}/assets", "#{__dir__}/dist")
-
-		pages = Dir["#{__dir__}/pages/**/*.md"]
-		pages.each { |page| new(page).call }
+		assets = AssetsInDirectory.new(source_directory, "**/*.md").assets
+		assets.each { |asset| build_asset(asset, destination_directory) }
 	end
 
-	def initialize(page)
-		@page = page
-        @path = compute_path
-        freeze
+	def self.build_asset(asset, destination_directory = "#{__dir__}/dist")
+		new(asset, destination_directory).call
+	end
+
+	def initialize(asset, destination_directory)
+		@asset = asset
+		@destination_directory = destination_directory
+
+    @path = compute_path(asset)
+    freeze
 	end
 
 	def call
-		FileUtils.mkdir_p(directory)
-		File.write(file, Components::Page.new(File.read(@page)).call(view_context: { current_page: @path }))
+		FileUtils.mkdir_p(File.dirname(destination_file))
+		File.write(destination_file, Components::Page.new(@asset.read).call(view_context: { current_page: @path }))
 	end
 
 	private
 
-	def file
-		"#{directory}/index.html"
+	def destination_file
+		File.join(@destination_directory, @path, "index.html")
 	end
 
-	def directory
-		"#{__dir__}/dist#{@path}"
-	end
-
-	def compute_path
-		real_path = @page.delete_prefix("#{__dir__}/pages/").delete_suffix(".md").tr("_", "-")
-		if real_path == "index"
+	def compute_path(asset)
+		File.join(
+			asset.path.delete_suffix(".md").delete_suffix("/index").tr("_", "-"),
 			"/"
-		else
-			"/#{real_path}/"
-		end
+		)
 	end
 end

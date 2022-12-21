@@ -11,11 +11,20 @@ loader.push_dir(File.expand_path("#{__dir__}/.."))
 loader.enable_reloading
 loader.setup
 
-PageBuilder.build_all
+def build_site
+  AssetBuilder.build_all
+  PageBuilder.build_all
+end
+build_site
 
 if ARGV.include? "--watch"
-  Filewatcher.new(["#{__dir__}/../**/*rb", "#{__dir__}/**/*md"]).watch do |_changes|
+  Filewatcher.new([
+    "#{__dir__}/../**/*rb", 
+    "#{__dir__}/../**/*md", 
+    "#{__dir__}/../assets/**/*"
+  ]).watch do |_changes|
+    puts "File changes: #{_changes.inspect}"
     loader.reload
-    PageBuilder.build_all
+    build_site
   end
 end

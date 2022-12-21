@@ -2,7 +2,7 @@ class PageBuilder
 	def self.build_all(source_directory = "#{__dir__}/pages", destination_directory = "#{__dir__}/dist")
 		FileUtils.mkdir_p(destination_directory)
 
-		assets = AssetsInDirectory.new(source_directory, "**/*.md").assets
+		assets = AssetsInDirectory.new(directory: source_directory, filename_pattern: "**/*.md").assets
 		assets.each { |asset| build_asset(asset, destination_directory) }
 	end
 

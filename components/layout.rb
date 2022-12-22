@@ -16,6 +16,10 @@ module Components
           meta charset: "utf-8"
           meta name: "viewport", content: "width=device-width, initial-scale=1"
 
+          meta name: "author", content: "Bradley Schaefer"
+          meta(name: "description", content: @description) if @description
+          meta(name: "keywords", content: Array(@keywords).join(",")) if @keywords
+
           # favicon
           # generated via https://realfavicongenerator.net/ on 2022-11-28
           link rel: "apple-touch-icon", sizes: "180x180", href: "/assets/favicon/apple-touch-icon.png"
@@ -41,7 +45,7 @@ module Components
                   unsafe_raw '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8"> <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" /> </svg>'
                 end
 
-                a(href: "/", class: "block") { img src: "/assets/logo.png", width: "100" }
+                a(href: "/", class: "block") { img src: "/images/logo.png", width: "100" }
               end
 
               nav(class: "text-stone-500 font-medium") do
@@ -60,9 +64,7 @@ module Components
                 end
               end
 
-              footer class: "border-t p-20 flex justify-center text-stone-500 text-lg font-medium" do
-                "© Copyright 2017-2023 Bradley Schaefer"
-              end
+              render Footer.new
             end
           end
         end

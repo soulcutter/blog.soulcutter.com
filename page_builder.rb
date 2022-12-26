@@ -31,7 +31,11 @@ class PageBuilder
 
 	def compute_path(asset)
 		File.join(
-			asset.path.delete_suffix(".md").delete_suffix("/index").tr("_", "-"),
+			asset.path.
+				delete_suffix(".md").
+				delete_suffix("/index").
+				tr("_", "-").
+				gsub(/\d{4}-\d{2}-\d{2}-/, ""), # strip date prefix
 			"/"
 		)
 	end

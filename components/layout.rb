@@ -37,35 +37,32 @@ module Components
           style { unsafe_raw Rouge::Theme.find("github").render(scope: ".highlight") }
         end
 
-        body class: "text-stone-700" do
-          div class: "flex flex-col" do
-            header class: "border-b py-4 px-4 lg:px-10 flex justify-between items-center sticky top-0 left-0 bg-white z-50" do
-              div class: "flex flex-row items-center gap-2" do
-                label for: "nav-toggle", class: "cursor-pointer lg:hidden" do
-                  unsafe_raw '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8"> <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" /> </svg>'
-                end
+        body class: "text-stone-700 flex flex-col" do
+          header class: "border-b py-4 px-4 lg:px-10 flex justify-between items-center sticky top-0 left-0 bg-white z-50" do
+            div class: "flex flex-row items-center gap-2" do
+              a(href: "/", class: "block") { img src: "/images/logo.png", width: "100" }
+            end
 
-                a(href: "/", class: "block") { img src: "/images/logo.png", width: "100" }
-              end
+            div class: "flex flex-row items-center gap-2 border-b-2" do
+              h2(class: "text-4xl") { "Soulcutter" }
+            end
 
-              nav(class: "text-stone-500 font-medium") do
-                ul(class: "flex space-x-8") do
-                  li { a(href: "https://github.com/soulcutter") { "GitHub" } }
-                end
+            div class: "flex flex-row items-center gap-2" do
+              a(href: "/", class: "block") { img src: "/images/logo.png", width: "100" }
+            end
+          end
+
+          render Nav.new
+
+          div do
+            div class: "flex flex-row" do
+
+              main class: "w-full lg:w-3/4 px-6 lg:px-20 py-5 border-0 lg:border-l-2 border-gray-100" do
+                div(class: "max-w-full lg:max-w-prose prose", &block)
               end
             end
 
-            div do
-              div class: "flex flex-row" do
-                render Nav.new
-
-                main class: "w-full lg:w-3/4 px-6 lg:px-20 py-5 border-0 lg:border-l-2 border-gray-100" do
-                  div(class: "max-w-full lg:max-w-prose prose", &block)
-                end
-              end
-
-              render Footer.new
-            end
+            render Footer.new
           end
         end
       end

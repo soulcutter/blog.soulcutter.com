@@ -1,7 +1,7 @@
 module Components
   class Footer < Phlex::HTML
     def template
-      footer class: "bg-white border-t border-stone-400" do
+      footer class: "bg-white border-t" do
         div class: "container max-w-4xl mx-auto flex py-8" do
           div class: "w-full mx-auto flex flex-wrap" do
             footer_section do
@@ -14,13 +14,14 @@ module Components
             footer_section do
               h3(class: "font-semibold text-stone-900") { "Social" }
               ul class: "list-reset items-center text-sm pt-3" do
-                social_link(href: "https://github.com/soulcutter") { "Github" }
+                social_link(href: "https://github.com/soulcutter") { "GitHub" }
+                social_link(href: "https://ruby.social/@soulcutter") { "Mastodon" }
               end
             end
           end
         end
 
-        div class: "border-t p-10 flex justify-center text-stone-500 text-lg font-medium" do
+        div class: "border-t border-stone-400 py-6 px-10 flex justify-center text-stone-500 text-lg font-medium" do
           "© Copyright 2017-2023 Bradley Schaefer"
         end
       end

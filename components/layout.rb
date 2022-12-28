@@ -54,16 +54,13 @@ module Components
 
           render Nav.new
 
-          div do
-            div class: "flex flex-row" do
-
-              main class: "w-full lg:w-3/4 px-6 lg:px-20 py-5 border-0 lg:border-l-2 border-gray-100" do
-                div(class: "max-w-full lg:max-w-prose prose", &block)
-              end
+          div class: "flex flex-row justify-center" do
+            main class: "px-6 lg:px-20 py-5" do
+              div(class: "max-w-full lg:max-w-prose prose", &block)
             end
-
-            render Footer.new
           end
+
+          render Footer.new
         end
       end
     end

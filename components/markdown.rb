@@ -9,7 +9,7 @@ module Components
 
     def a(**attributes)
       super(
-        class: "font-bold text-red-600 underline underline-offset-4",
+        class: "font-bold text-teal-600 active:text-teal-800 underline underline-offset-4",
         **attributes
       )
     end

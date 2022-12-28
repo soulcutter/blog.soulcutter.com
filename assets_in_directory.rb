@@ -15,10 +15,11 @@ AssetsInDirectory = Struct.new(:directory, :filename_pattern, :filters, keyword_
     self.class.new(directory: directory, filename_pattern: filename_pattern, filters: filters + [block])
   end
 
-  def recursive_copy(destination_directory:)
+  def write(destination_directory)
     assets.each do |asset|
       destination = File.join(destination_directory, asset.path)
-      asset.cp(destination)
+      destination = PageBuilder.strip_date_prefix destination
+      asset.write(destination)
     end
   end
 end

@@ -12,15 +12,19 @@ class PageBuilder
 
 	def initialize(asset, destination_directory)
 		@asset = asset
-		@destination_directory = destination_directory
+		@destination_directory = self.class.strip_date_prefix destination_directory
 
-    @path = compute_path(asset)
+    @path = self.class.strip_date_prefix compute_path(asset)
     freeze
 	end
 
 	def call
 		FileUtils.mkdir_p(File.dirname(destination_file))
 		File.write(destination_file, Components::Page.new(@asset.read).call(view_context: { current_page: @path }))
+	end
+
+  def self.strip_date_prefix(str)
+		str.gsub(/\d{4}-\d{2}-\d{2}-/, "")
 	end
 
 	private
@@ -34,8 +38,7 @@ class PageBuilder
 			asset.path.
 				delete_suffix(".md").
 				delete_suffix("/index").
-				tr("_", "-").
-				gsub(/\d{4}-\d{2}-\d{2}-/, ""), # strip date prefix
+				tr("_", "-"),
 			"/"
 		)
 	end

@@ -20,7 +20,7 @@ class Build
       AssetsInDirectory.new(directory: "#{BASE_PATH}/assets").reject { |asset| asset.path == "/application.css" },
       AssetsInDirectory.new(directory: "#{BASE_PATH}/pages", filename_pattern: "**/*.{jpg,png,gif}"),
     ].each do |assets|
-      assets.recursive_copy(destination_directory: "#{BASE_PATH}/dist")
+      assets.write("#{BASE_PATH}/dist")
     end
   
     PageBuilder.build_all

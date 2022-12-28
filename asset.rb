@@ -9,7 +9,7 @@ Asset = Struct.new(:path) do
   def directory = File.dirname(path)
   def read = File.read(@origin)
 
-  def cp(destination)
+  def write(destination)
      FileUtils.mkdir_p(File.dirname(destination))
      if Pathname(@origin).directory?
        puts "Origin: #{@origin.inspect}"

@@ -3,7 +3,7 @@
 module Components
   class Nav < Phlex::HTML
     def template
-      nav(class: "flex text-stone-500 font-medium justify-center") do
+      nav(class: "flex text-stone-500 font-medium justify-center sticky top-0 left-0") do
         ul(class: "flex flex-row space-x-8") do
           li { nav_link(to: "/articles") { "Articles" } }
           li { nav_link(to: "/code") { "Code" } }
@@ -15,7 +15,7 @@ module Components
       a(
         href: to, 
         **classes(
-          "block border-b-4 border-x-2 py-2 px-4 rounded-b-md",
+          "block border-b-4 border-x-2 py-2 px-4 rounded-b-md bg-white",
           "hover:text-teal-600 hover:border-teal-600",
           "active:text-teal-800 active:border-teal-800",
           -> { @_view_context[:current_page].start_with?(to) } => "border-teal-200 bg-teal-100"

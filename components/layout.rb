@@ -38,7 +38,7 @@ module Components
         end
 
         body class: "text-stone-700 flex flex-col" do
-          header class: "border-b py-4 px-4 lg:px-10 flex justify-between items-center sticky top-0 left-0 bg-white z-50" do
+          header class: "border-b py-4 px-4 lg:px-10 flex justify-between items-center" do
             div class: "flex flex-row items-center gap-2" do
               a(href: "/", class: "block") { img src: "/images/logo.png", width: "100" }
             end

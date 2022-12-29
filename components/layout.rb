@@ -54,7 +54,7 @@ module Components
 
           render Nav.new
 
-          div class: "flex flex-row justify-center" do
+          div class: "flex flex-row justify-center pb-6" do
             main class: "px-6 lg:px-20 py-5 bg-white drop-shadow-xl" do
               div(class: "max-w-full lg:max-w-prose prose", &block)
             end

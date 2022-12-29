@@ -37,8 +37,8 @@ module Components
           style { unsafe_raw Rouge::Theme.find("github").render(scope: ".highlight") }
         end
 
-        body class: "text-stone-700 flex flex-col" do
-          header class: "border-b py-4 px-4 lg:px-10 flex justify-between items-center" do
+        body class: "text-stone-700 flex flex-col bg-stone-100" do
+          header class: "border-b py-4 px-4 lg:px-10 flex justify-between items-center bg-white" do
             div class: "flex flex-row items-center gap-2" do
               a(href: "/", class: "block") { img src: "/images/logo.png", width: "100" }
             end
@@ -55,7 +55,7 @@ module Components
           render Nav.new
 
           div class: "flex flex-row justify-center" do
-            main class: "px-6 lg:px-20 py-5" do
+            main class: "px-6 lg:px-20 py-5 bg-white drop-shadow-xl" do
               div(class: "max-w-full lg:max-w-prose prose", &block)
             end
           end

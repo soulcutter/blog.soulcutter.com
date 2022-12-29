@@ -1,27 +1,32 @@
+GIT
+  remote: https://github.com/soulcutter/phlex-markdown.git
+  revision: 52d6e3917334b0569e3f4a796b657b6de3a55aa8
+  specs:
+    phlex-markdown (0.3.0)
+      markly (~> 0.7)
+      phlex (>= 0.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    debug (1.7.0)
+    debug (1.7.1)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     filewatcher (2.1.0)
       module_methods (~> 0.1.0)
     htmlbeautifier (1.4.2)
     io-console (0.6.0)
-    irb (1.6.1)
+    irb (1.6.2)
       reline (>= 0.3.0)
     markly (0.7.0)
     module_methods (0.1.0)
     phlex (1.0.0)
       zeitwerk (~> 2.6)
-    phlex-markdown (0.3.0)
-      markly (~> 0.7)
-      phlex (>= 0.5)
     redcarpet (3.5.1)
     reline (0.3.2)
       io-console (~> 0.5)
-    rouge (3.26.0)
-    syntax_suggest (1.0.1)
+    rouge (4.0.1)
+    syntax_suggest (1.0.2)
     webrick (1.7.0)
     zeitwerk (2.6.6)
 
@@ -34,7 +39,7 @@ DEPENDENCIES
   htmlbeautifier
   markly
   phlex
-  phlex-markdown
+  phlex-markdown!
   redcarpet
   rouge
   syntax_suggest

@@ -2,5 +2,4 @@
 title: Soulcutter's Homepage 
 ---
 
-# Home
-This is the home of Soulcutter on the internet.
+The latest revision of Bradley Schaefer's website.

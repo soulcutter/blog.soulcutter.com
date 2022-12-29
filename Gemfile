@@ -1,7 +1,8 @@
 source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem "phlex"
-gem "phlex-markdown"
+gem "phlex-markdown", github: "soulcutter/phlex-markdown"
 
 gem "syntax_suggest"
 gem "zeitwerk"

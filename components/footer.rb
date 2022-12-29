@@ -2,7 +2,7 @@ module Components
   class Footer < Phlex::HTML
     def template
       footer class: "bg-white border-t" do
-        div class: "container max-w-4xl mx-auto flex py-8" do
+        div class: "container max-w-4xl mx-auto flex py-6" do
           div class: "w-full mx-auto flex flex-wrap" do
             footer_section do
               h3(class: "font-semibold text-stone-900") { "About" }
@@ -21,7 +21,7 @@ module Components
           end
         end
 
-        div class: "border-t border-stone-400 py-6 px-10 flex justify-center text-stone-500 text-lg font-medium" do
+        div class: "border-t border-stone-400 py-6 px-10 flex justify-center text-stone-400 text-lg font-medium bg-stone-100" do
           "© Copyright 2017-2023 Bradley Schaefer"
         end
       end

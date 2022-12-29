@@ -3,7 +3,7 @@
 module Components
   class Nav < Phlex::HTML
     def template
-      nav(class: "flex text-stone-500 font-medium justify-center sticky top-0 left-0") do
+      nav(class: "flex text-stone-500 font-medium justify-left sticky top-0 left-0 px-6 lg:px-20 z-20") do
         ul(class: "flex flex-row space-x-8") do
           li { nav_link(to: "/articles") { "Articles" } }
           li { nav_link(to: "/code") { "Code" } }

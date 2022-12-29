@@ -12,6 +12,7 @@ module Components
 
     def template
       render Layout.new(title: @data["title"]) do
+        h1(class: "text-2xl font-bold underline") { @data["title"] }
         render Markdown.new(content)
       end
     end

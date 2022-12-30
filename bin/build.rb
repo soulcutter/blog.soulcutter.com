@@ -3,26 +3,37 @@
 
 $stdout.sync = true
 
-$:.unshift File.expand_path("#{__dir__}/../lib")
+BASE_PATH = File.expand_path("#{__dir__}/..")
+
+$:.unshift File.join(BASE_PATH, "lib")
 
 require "site_builder"
 
 class Build
   BASE_PATH = File.expand_path("#{__dir__}/..").freeze
+
+  def self.build
+    assets = [
+      # We need to exclude application.css because tailwindcss handles building that
+      SiteBuilder::AssetsInDirectory.new(directory: "#{BASE_PATH}/assets").reject { |asset| asset.path == "/application.css" },
+      SiteBuilder::AssetsInDirectory.new(directory: "#{BASE_PATH}/pages", filename_pattern: "**/*.{jpg,png,gif}"),
+    ]
+    SiteBuilder.build_site(assets: assets, pages: "#{BASE_PATH}/pages", destination: "#{BASE_PATH}/dist")
+  end
   
   def self.watch
     puts "bin/build.rb: Watching for file changes..."
     Filewatcher.new([
-      "#{BASE_PATH}/lib/*.rb", 
+      "#{BASE_PATH}/lib/**/*.rb", 
       "#{BASE_PATH}/pages/**/*", 
       "#{BASE_PATH}/assets/**/*"
     ]).watch do |_changes|
       puts "File changes: #{_changes.inspect}"
       SiteBuilder::LOADER.reload
-      SiteBuilder.build_site
+      build
     end
   end
 end
 
-SiteBuilder.build_site
+Build.build
 Build.watch if ARGV.include? "--watch"

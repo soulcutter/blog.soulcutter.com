@@ -2,22 +2,19 @@ require "bundler"
 Bundler.require :default
 
 module SiteBuilder
-  BASE_PATH = "#{__dir__}/..".freeze
-
   LOADER = Zeitwerk::Loader.for_gem(warn_on_extra_files: false).tap do |loader|
     loader.enable_reloading
     loader.setup
   end
 
-  def self.build_site
-    asset_packs = [
-      # We need to exclude application.css because tailwindcss handles building that
-      AssetsInDirectory.new(directory: "#{BASE_PATH}/assets").reject { |asset| asset.path == "/application.css" },
-      AssetsInDirectory.new(directory: "#{BASE_PATH}/pages", filename_pattern: "**/*.{jpg,png,gif}"),
-    ].each do |assets|
-      assets.write("#{BASE_PATH}/dist")
-    end
+  BASE_PATH = "#{__dir__}/..".freeze
+  private_constant :BASE_PATH
+
+  def self.build_site(assets:, pages:, destination:)
+    # eventually pass some post-asset-writing artifact to page-building
+    assets.each { |assets| assets.write(destination) }
   
-    PageBuilder.build_all("#{BASE_PATH}/pages", "#{BASE_PATH}/dist")
+    # eventually `pages` should be a collection object and not a string
+    PageBuilder.build_all(pages, destination)
   end
 end

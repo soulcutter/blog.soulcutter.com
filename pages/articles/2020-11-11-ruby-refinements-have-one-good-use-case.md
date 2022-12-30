@@ -24,7 +24,7 @@ There's a good chance you've never written one yourself. There's a good chance y
 
 Ruby's conversion wrappers are attached to `Kernel` and therefore are available in every scope. Try running this snippet to illustrate:
 
-{% highlight ruby %}
+```ruby
 BAR = Array(1)
 class Foo
    def self.bar; Array(1); end
@@ -34,11 +34,11 @@ end
 BAR # => [1]
 Foo.bar # => [1]
 Foo.new.bar # => [1]
-{% endhighlight %}
+```
 
 When writing our OWN conversion wrappers they are likely to look something like this contrived example:
 
-{% highlight ruby %}
+```ruby
 require 'time'
 
 Timestamp = Struct.new(:at)
@@ -50,11 +50,11 @@ module Conversions
     Timestamp.new(value)
   end
 end
-{% endhighlight %}
+```
 
 You'll find that using a conversion wrapper in this form is more-painful than `Array()`:
 
-{% highlight ruby %}
+```ruby
 # BUSINESS = Timestamp(1) is not possible
 # this works, but forces you to reference the namespace 
 BUSINESS = Conversions.Timestamp(1)
@@ -66,11 +66,11 @@ class SeriousBusiness
   def self.business; Timestamp(1); end
   def business; Timestamp(1); end
 end
-{% endhighlight %}
+```
 
 I concede - assigning a constant is not a compelling case. Having to `include` AND `extend` is a bit unusual, though. Let's fix that.
 
-{% highlight ruby %}
+```ruby
 # assuming the previously-defined Conversions module
 class Conversions
   # whenever you `include` this module, also `extend` it
@@ -83,21 +83,21 @@ class SillyBusiness
   def self.business; Timestamp(1); end
   def business; Timestamp(1); end
 end
-{% endhighlight %}
+```
 
 The ergonomics of using that is a bit better, though it starts littering methods in more places. One subtle thing I will point out about using `module_function` - it hides the `Timestamp` method, but it IS there.
 
-{% highlight ruby %}
+```ruby
 SillyBusiness.Timestamp(1) # NoMethodError: private method `Timestamp' called for SillyBusiness:Class
 SillyBusiness.new.Timestamp(1) # NoMethodError: private method `Timestamp' called for #<SillyBusiness:0x00007fcb712c0800>
 SeriousBusiness.send(:Timestamp, 1) # ok, nobody will ever do this but it works because the method IS there
-{% endhighlight %}
+```
 
 ### Using Refinements for Conversion Wrappers
 
 Let's check out what the refinement approach looks like and why I consider it the best way to implement conversion wrappers.
 
-{% highlight ruby %}
+```ruby
 module TimestampConversionRefinement
   refine Kernel do
     def Timestamp(value)
@@ -116,7 +116,7 @@ end
 
 # ElegantBusiness.Timestamp(1) # NoMethodError: undefined method `Timestamp' for ElegantBusiness:Class
 # ElegantBusiness.send(:Timestamp, 1) # NoMethodError: undefined method `Timestamp' for ElegantBusiness:Class
-{% endhighlight %}
+```
 
 If you move `using TimestampConversionRefinement` to be outside of `ElegantBusiness` in the same file, you also have access to use it to define a constant with that same non-namespaced `Timestamp()` syntax because of the lexical scope of refinements. Whatever scope you decide to put `using TimestampConversionRefinement` it will NEVER pollute any lexical scope outside of that. You get the convenient behavior of a method defined on `Kernel`, but without affecting every other file or any gem dependency as you might have if you were to `Kernel.include(Conversions)`.
 
@@ -127,20 +127,20 @@ If you move `using TimestampConversionRefinement` to be outside of `ElegantBusin
 ## Popularizing this as idiomatic
 There is ONE thing that MIGHT help grow some small foothold of adoption is: actually using refinements in Ruby's standard library! I would not at-all suggest ripping out what Ruby gives you on `Kernel` by default, but there are places in the standard library that pollute `Kernel` once you require them. One example is `BigDecimal`
 
-{% highlight ruby %}
+```ruby
 BigDecimal(1) # NoMethodError: undefined method `BigDecimal'
 
 require 'bigdecimal'
 BigDecimal(1) # => 0.1e1
-{% endhighlight %}
+```
 
 Ruby's standard library COULD adopt a usage that looks more like
 
-{% highlight ruby %}
+```ruby
 require 'bigdecimal'
 using BigDecimal::Conversion
 BigDecimal(1) # => 0.1e1
-{% endhighlight %}
+```
 
 This would start to familiarize people with the concept of refinements and using them for conversion wrappers. It's tough to imagine a path towards changing pre-existing examples of this in the stdlib such as `BigDecimal`, `URI`, `Pathname` and others, but there remain opportunities to write _new_ conversion wrappers for existing stdlib classes. I humbly suggest `Date()`, `DateTime()`, and `Time()` to start?
 
@@ -162,4 +162,4 @@ I am very late updating this post, because almost immediately I got a few exampl
 
 ### Colorizing log messages
 
-<a href="https://dev.to/rolandstuder/ruby-refinements-have-a-second-good-use-case-42jk">Roland Stuter responded with a combination of procs, instance_eval, and refining the String class</a> - when you put it all together, it's a handy way to express decorated output!
+[Roland Stuter responded with a combination of procs, instance_eval, and refining the String class](https://dev.to/rolandstuder/ruby-refinements-have-a-second-good-use-case-42jk) - when you put it all together, it's a handy way to express decorated output!

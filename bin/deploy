@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+./bin/setup
+
+# Generate site
+echo "rm -rf ./dist" && rm -rf ./dist
+echo "bundle exec bin/build.rb" && bundle exec bin/build.rb
+echo "tailwindcss -i ./assets/application.css -o ./dist/application.css" && \
+      tailwindcss -i ./assets/application.css -o ./dist/application.css
+
+# Upload to server
+# rsync -a ./dist/ soulcutter@soulcutter.com:/srv/www/

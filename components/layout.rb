@@ -21,15 +21,15 @@ module Components
           meta(name: "keywords", content: Array(@keywords).join(",")) if @keywords
 
           # favicon
-          # generated via https://realfavicongenerator.net/ on 2022-11-28
-          link rel: "apple-touch-icon", sizes: "180x180", href: "/assets/favicon/apple-touch-icon.png"
-          link rel: "icon", type: "image/png", sizes: "32x32", href: "/assets/favicon/favicon-32x32.png"
-          link rel: "icon", type: "image/png", sizes: "16x16", href: "/assets/favicon/favicon-16x16.png"
-          link rel: "manifest", href: "/assets/favicon/site.webmanifest"
-          link rel: "mask-icon", href: "/assets/favicon/safari-pinned-tab.svg", color: "#c90058"
-          link rel: "shortcut icon", href: "/assets/favicon/favicon.ico"
-          meta name: "msapplication-TileColor", content: "#00aba9"
-          meta name: "msapplication-config", content: "/assets/favicon/browserconfig.xml"
+          # generated via https://realfavicongenerator.net/ on 2022-12-30
+          link rel: "apple-touch-icon", sizes: "180x180", href: "/favicon/apple-touch-icon.png"
+          link rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon/favicon-32x32.png"
+          link rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon/favicon-16x16.png"
+          link rel: "manifest", href: "/favicon/site.webmanifest"
+          link rel: "mask-icon", href: "/favicon/safari-pinned-tab.svg", color: "#c90058"
+          link rel: "shortcut icon", href: "/favicon/favicon.ico"
+          meta name: "msapplication-TileColor", content: "#da532c"
+          meta name: "msapplication-config", content: "/favicon/browserconfig.xml"
           meta name: "theme-color", content: "#ffffff"
 
           title { @title }

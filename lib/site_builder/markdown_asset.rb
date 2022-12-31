@@ -5,7 +5,7 @@ module SiteBuilder
 
       File.write(
         destination,
-        Components::Page.new(read).call(view_context: { current_page: slug })
+        Components::Page.new(read).call(view_context: {current_page: slug})
       )
     end
 
@@ -14,6 +14,6 @@ module SiteBuilder
         path.delete_suffix(".md").delete_suffix("/index").gsub(/\d{4}-\d{2}-\d{2}-/, "").tr("_", "-"),
         "index.html"
       )
-		end
+    end
   end
 end

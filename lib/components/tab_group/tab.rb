@@ -1,6 +1,5 @@
 module Components
   class TabGroup
-
     class Tab < Phlex::HTML
       def initialize(name:, checked:)
         @name = name
@@ -19,7 +18,6 @@ module Components
           yield_content(&block)
         end
       end
-
     end
   end
 end

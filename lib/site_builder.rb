@@ -18,7 +18,7 @@ module SiteBuilder
   def self.build_site(assets:, pages:, destination:)
     # eventually pass some post-asset-writing artifact to page-building
     assets.each { |asset| asset.write(destination) }
-  
+
     pages.each { |asset| asset.write(destination) }
   end
 end

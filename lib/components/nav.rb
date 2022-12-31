@@ -13,7 +13,7 @@ module Components
 
     def nav_link(to:, &block)
       a(
-        href: to, 
+        href: to,
         **classes(
           "block border-b-4 border-x-2 py-2 px-4 rounded-b-md bg-white",
           "hover:text-teal-600 hover:border-teal-600",

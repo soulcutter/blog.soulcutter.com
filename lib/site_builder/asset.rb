@@ -1,25 +1,33 @@
 require "pathname"
 
 module SiteBuilder
-  Asset = Struct.new(:origin) do
+  class Asset
+    attr_reader :full_path
+    attr_reader :base_path
+    attr_reader :filename
+    attr_reader :directory
     attr_reader :path
-    
-    def initialize(origin, prefix = "") 
-      super origin
-      @path = origin.delete_prefix(prefix)
+
+    def initialize(full_path:, base_path: "")
+      @full_path = full_path
+      @base_path = base_path
+      @path = full_path.delete_prefix(base_path)
+      @directory, @filename = *File.split(path)
+
+      if Pathname(full_path).directory?
+        puts "WARNING: full_path is a directory"
+        puts "full_path: #{full_path.inspect}"
+      end
     end
-  
-    def directory = File.dirname(path)
-    def read = File.read(origin)
-  
+
+    def read = File.read(full_path)
+
+    def slug
+      raise NotImplementedError
+    end
+
     def write(destination)
-       FileUtils.mkdir_p(File.dirname(destination))
-       if Pathname(origin).directory?
-         puts "Origin: #{origin.inspect}"
-         puts "Destination: #{destination.inspect}"
-         puts "WARNING: Origin #{origin.inspect}, is a directory"
-       end
-       FileUtils.cp(origin, destination)
+      raise NotImplementedError
     end
   end
 end

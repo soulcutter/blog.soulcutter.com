@@ -15,10 +15,11 @@ class Build
   def self.build
     assets = [
       # We need to exclude application.css because tailwindcss handles building that
-      SiteBuilder::AssetsInDirectory.new(directory: "#{BASE_PATH}/assets").reject { |asset| asset.path == "/application.css" },
-      SiteBuilder::AssetsInDirectory.new(directory: "#{BASE_PATH}/pages", filename_pattern: "**/*.{jpg,png,gif}"),
+      SiteBuilder::AssetsInDirectory.new(asset_type: SiteBuilder::StaticAsset, directory: "#{BASE_PATH}/assets").reject { |asset| asset.path == "/application.css" },
+      SiteBuilder::AssetsInDirectory.new(asset_type: SiteBuilder::StaticAsset, directory: "#{BASE_PATH}/pages", filename_pattern: "**/*.{jpg,png,gif}"),
     ]
-    SiteBuilder.build_site(assets: assets, pages: "#{BASE_PATH}/pages", destination: "#{BASE_PATH}/dist")
+    markdown_pages = SiteBuilder::AssetsInDirectory.new(asset_type: SiteBuilder::MarkdownAsset, directory: "#{BASE_PATH}/pages", filename_pattern: "**/*.md")
+    SiteBuilder.build_site(assets: assets, pages: [markdown_pages], destination: "#{BASE_PATH}/dist")
   end
   
   def self.watch

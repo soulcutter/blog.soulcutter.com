@@ -10,11 +10,15 @@ module SiteBuilder
   BASE_PATH = "#{__dir__}/..".freeze
   private_constant :BASE_PATH
 
+  def self.site
+    Site.new
+  end
+
+  # 💡 have this take a block and allow you to configure the assets within that block
   def self.build_site(assets:, pages:, destination:)
     # eventually pass some post-asset-writing artifact to page-building
-    assets.each { |assets| assets.write(destination) }
+    assets.each { |asset| asset.write(destination) }
   
-    # eventually `pages` should be a collection object and not a string
-    PageBuilder.build_all(pages, destination)
+    pages.each { |asset| asset.write(destination) }
   end
 end

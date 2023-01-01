@@ -3,23 +3,21 @@
 
 $stdout.sync = true
 
-BASE_PATH = File.expand_path("#{__dir__}/..")
 
-$:.unshift File.join(BASE_PATH, "lib")
-
+$:.unshift File.expand_path("#{__dir__}/../lib")
 require "site_builder"
 
 class Build
   BASE_PATH = File.expand_path("#{__dir__}/..").freeze
 
   def self.build
-    assets = [
-      # We need to exclude application.css because tailwindcss handles building that
-      SiteBuilder::AssetsInDirectory.new(asset_type: SiteBuilder::StaticAsset, directory: "#{BASE_PATH}/assets").reject { |asset| asset.path == "/application.css" },
-      SiteBuilder::AssetsInDirectory.new(asset_type: SiteBuilder::StaticAsset, directory: "#{BASE_PATH}/pages", filename_pattern: "**/*.{jpg,png,gif}"),
-    ]
-    markdown_pages = SiteBuilder::AssetsInDirectory.new(asset_type: SiteBuilder::MarkdownAsset, directory: "#{BASE_PATH}/pages", filename_pattern: "**/*.md")
-    SiteBuilder.build_site(assets: assets, pages: [markdown_pages], destination: "#{BASE_PATH}/dist")
+    # We need to exclude application.css because tailwindcss handles building that, and two processes
+    # both trying to write that specific file is a race condition
+    static_assets = SiteBuilder::AssetsInDirectory.new(asset_type: SiteBuilder::StaticAsset, directory: "#{BASE_PATH}/assets").assets.reject { |asset| asset.path == "/application.css" }
+    static_assets += SiteBuilder::AssetsInDirectory.new(asset_type: SiteBuilder::StaticAsset, directory: "#{BASE_PATH}/pages", filename_pattern: "**/*.{jpg,png,gif}").assets
+    markdown_pages = SiteBuilder::AssetsInDirectory.new(asset_type: SiteBuilder::MarkdownAsset, directory: "#{BASE_PATH}/pages", filename_pattern: "**/*.md").assets
+
+    SiteBuilder.build_site(assets: static_assets, pages: markdown_pages, destination: "#{BASE_PATH}/dist")
   end
   
   def self.watch

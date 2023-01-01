@@ -12,11 +12,9 @@ module SiteBuilder
   BASE_PATH = "#{__dir__}/..".freeze
   private_constant :BASE_PATH
 
-  # 💡 have this take a block and allow you to configure the assets within that block
-  def self.build_site(assets:, destination:)
-    assets.each do |asset|
-      file_path = File.join(destination, asset.slug)
-      asset.write(file_path)
-    end
+  def self.build(destination:)
+    site = Site.new
+    yield site
+    site.build(destination)
   end
 end

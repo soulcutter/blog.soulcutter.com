@@ -17,7 +17,7 @@ class Build
     static_assets += SiteBuilder::AssetsInDirectory.new(asset_type: SiteBuilder::StaticAsset, directory: "#{BASE_PATH}/pages", filename_pattern: "**/*.{jpg,png,gif}").assets
     markdown_pages = SiteBuilder::AssetsInDirectory.new(asset_type: SiteBuilder::MarkdownAsset, directory: "#{BASE_PATH}/pages", filename_pattern: "**/*.md").assets
 
-    SiteBuilder.build_site(assets: static_assets, pages: markdown_pages, destination: "#{BASE_PATH}/dist")
+    SiteBuilder.build_site(assets: static_assets + markdown_pages, destination: "#{BASE_PATH}/dist")
   end
   
   def self.watch

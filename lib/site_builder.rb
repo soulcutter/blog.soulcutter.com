@@ -13,13 +13,8 @@ module SiteBuilder
   private_constant :BASE_PATH
 
   # 💡 have this take a block and allow you to configure the assets within that block
-  def self.build_site(assets:, pages:, destination:)
+  def self.build_site(assets:, destination:)
     assets.each do |asset|
-      file_path = File.join(destination, asset.slug)
-      asset.write(file_path)
-    end
-
-    pages.each do |asset|
       file_path = File.join(destination, asset.slug)
       asset.write(file_path)
     end

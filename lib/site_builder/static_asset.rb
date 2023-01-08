@@ -8,7 +8,7 @@ module SiteBuilder
     end
 
     def slug
-      path.gsub(DATESTAMP_PATTERN, "").tr("_", "-")
+      path.gsub(DATESTAMP_PATTERN, "")
     end
   end
 end

@@ -1,5 +1,7 @@
 module SiteBuilder
   class Site
+    attr_reader :assets
+
     def initialize
       @assets = []
     end

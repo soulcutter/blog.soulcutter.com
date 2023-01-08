@@ -4,3 +4,4 @@ _site
 public/
 dist/
 node_modules/
+spec/examples.txt

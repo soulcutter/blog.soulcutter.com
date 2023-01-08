@@ -1,7 +1,7 @@
 FROM gitpod/workspace-full
 USER gitpod
 
-RUN _ruby_version=ruby-3.1.2 \
+RUN _ruby_version=ruby-3.2.0 \
     && printf "rvm_gems_path=/home/gitpod/.rvm\n" > ~/.rvmrc \
     && bash -lc "rvm reinstall ${_ruby_version} && \
                  rvm use ${_ruby_version} --default" \

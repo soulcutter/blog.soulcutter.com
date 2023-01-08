@@ -11,7 +11,7 @@ module Components
     def template(&block)
       doctype
 
-      html do
+      html lang: "en-US" do
         head do
           meta charset: "utf-8"
           meta name: "viewport", content: "width=device-width, initial-scale=1"

@@ -2,8 +2,6 @@
 
 module Components
   class Layout < Phlex::HTML
-    register_element :style
-
     def initialize(title:)
       @title = title
     end

@@ -1,15 +1,15 @@
 module SiteBuilder
   class Site
-    attr_reader :assets
-
     def initialize
       @assets = []
+      @site_map = {}
     end
 
     def static_assets(directory:, file_pattern: "**/*", excluding: Proc.new { false }) 
-      files(directory, file_pattern).each do |file|
-        register_asset StaticAsset.new(full_path: file, base_path: directory)
+      assets = files(directory, file_pattern).map do |file| 
+        StaticAsset.new(full_path: file, base_path: directory)
       end
+      assets.reject(&excluding).each { |asset| register_asset asset }
     end
 
     def markdown_assets(directory:, file_pattern: "**/*.md")
@@ -20,7 +20,15 @@ module SiteBuilder
 
     def register_asset(asset)
       @assets << asset
-      # more-interesting behavior to come, I think
+      @site_map[asset.slug] = asset
+    end
+
+    def assets_at(destination)
+      @site_map.select { |slug, asset| destination === slug }.values
+    end
+
+    def asset_at(destination)
+      @site_map.detect { |slug, asset| destination === slug }&.last
     end
 
     def build(destination)

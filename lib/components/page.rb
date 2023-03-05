@@ -1,6 +1,6 @@
 module Components
   class Page < Phlex::HTML
-    FRONT_MATTER_PATTERN = /^---\n(?<META>(\n|.)+)?\n---/
+    FRONT_MATTER_PATTERN = /^---\n(?<META>(?:\n|.)+)?\n---/
 
     def initialize(document)
       @document = document

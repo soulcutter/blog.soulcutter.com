@@ -3,8 +3,11 @@
 module Components
   class Markdown < Phlex::Markdown
     def h1 = super(class: "text-3xl font-semibold my-5")
+
     def h2 = super(class: "text-2xl font-semibold mt-10 mb-5")
+
     def h3 = super(class: "text-xl font-semibold my-5")
+
     def h4 = super(class: "text-lg font-semibold my-4")
 
     def a(**attributes)

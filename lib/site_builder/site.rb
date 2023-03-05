@@ -5,8 +5,8 @@ module SiteBuilder
       @site_map = {}
     end
 
-    def static_assets(directory:, file_pattern: "**/*", excluding: Proc.new { false }) 
-      assets = files(directory, file_pattern).map do |file| 
+    def static_assets(directory:, file_pattern: "**/*", excluding: proc { false })
+      assets = files(directory, file_pattern).map do |file|
         StaticAsset.new(full_path: file, base_path: directory)
       end
       assets.reject(&excluding).each { |asset| register_asset asset }
@@ -35,7 +35,7 @@ module SiteBuilder
       @assets.each do |asset|
         file_path = File.join(destination, asset.slug)
         asset.write(file_path)
-      end 
+      end
     end
 
     private def files(directory, file_pattern) = Dir[File.join(directory, file_pattern)].reject { |file| Pathname(file).directory? }

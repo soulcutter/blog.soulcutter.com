@@ -22,7 +22,7 @@ RSpec.describe SiteBuilder::Site do
       expect(site.asset_at(asset.slug)).to eq(asset)
       expect(site.asset_at(/dev/)).to eq(asset)
       expect(
-        site.asset_at ->(slug) { slug.end_with? "null" }
+        site.asset_at(->(slug) { slug.end_with? "null" })
       ).to eq(asset)
     end
   end

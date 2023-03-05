@@ -1,6 +1,6 @@
 module SiteBuilder
   class StaticAsset < Asset
-    DATESTAMP_PATTERN = /\d{4}-\d{2}-\d{2}-/.freeze
+    DATESTAMP_PATTERN = /\d{4}-\d{2}-\d{2}-/
 
     def write(destination)
       FileUtils.mkdir_p(File.dirname(destination))

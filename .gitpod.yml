@@ -9,7 +9,8 @@ vscode:
     - connorshea.vscode-ruby-test-adapter
     - hbenl.vscode-test-explorer
     - rebornix.ruby
-    - castwide.solargraph 
+    - castwide.solargraph
+    - testdouble.vscode-standard-ruby
 
 ports:
   # Web server

@@ -6,8 +6,10 @@ image:
 
 vscode:
   extensions:
-    - connorshea.vscode-ruby-test-adapter@0.9.1
-    - hbenl.vscode-test-explorer@2.21.1
+    - connorshea.vscode-ruby-test-adapter
+    - hbenl.vscode-test-explorer
+    - rebornix.ruby
+    - castwide.solargraph 
 
 ports:
   # Web server

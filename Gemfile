@@ -18,4 +18,7 @@ gem "rspec"
 
 group "development" do
   gem "standard"
+
+  # this is only for vscode but I don't know where else to put it right now
+  gem "solargraph"
 end

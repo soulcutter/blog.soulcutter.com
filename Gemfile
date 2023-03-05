@@ -15,3 +15,7 @@ gem "markly"
 gem "webrick"
 gem "rouge"
 gem "rspec"
+
+group "development" do
+  gem "standard"
+end

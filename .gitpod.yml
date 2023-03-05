@@ -18,7 +18,9 @@ ports:
     
 tasks:
   - name: Build Site
-    init: bin/setup && gp sync-done install_dependencies
+    init: gem install solargraph && \
+      bin/setup && \
+      gp sync-done install_dependencies
     command: bundle exec bin/build.rb --watch
 
   - name: Webserver

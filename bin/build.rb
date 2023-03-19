@@ -16,6 +16,10 @@ class Build
       site.add_static_assets(directory: "#{BASE_PATH}/assets", excluding: ->(asset) { asset.path == "/application.css" })
       site.add_static_assets(directory: "#{BASE_PATH}/pages", file_pattern: "**/*.{jpg,png,gif}")
       site.add_markdown_assets(directory: "#{BASE_PATH}/pages")
+      site.add_index_asset(
+        site.assets_matching(/^\/articles/),
+        full_path: "/articles/index.html"
+      )
     end
   end
   

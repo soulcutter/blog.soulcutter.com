@@ -2,6 +2,8 @@ module Components
   class MarkdownPage < Phlex::HTML
     FRONT_MATTER_PATTERN = /^---\n(?<META>(?:\n|.)+)?\n---/
 
+    attr_reader :data
+
     def initialize(document)
       @document = document
       @data = YAML.load(
@@ -11,7 +13,7 @@ module Components
     end
 
     def template
-      render Layout.new(title: @data["title"]) do
+      render Layout.new(title: @data["title"], **@data) do
         h1(class: "text-3xl font-semibold my-5") { @data["title"] }
         render Markdown.new(content)
       end

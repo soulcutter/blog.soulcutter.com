@@ -1,7 +1,7 @@
 module SiteBuilder
   class Site
     def initialize
-      @assets = []
+      @assets = Set.new
       @site_map = {}
     end
 
@@ -18,17 +18,21 @@ module SiteBuilder
       end
     end
 
+    def add_index_asset(assets, full_path:)
+      register_asset IndexAsset.new(assets, full_path: full_path)
+    end
+
     def register_asset(asset)
       @assets << asset
       @site_map[asset.slug] = asset
     end
 
-    def assets_at(destination)
-      @site_map.select { |slug, asset| destination === slug }.values
+    def assets_matching(destination)
+      @assets.select { |asset| destination === asset.slug }
     end
 
     def asset_at(destination)
-      @site_map.detect { |slug, asset| destination === slug }&.last
+      @assets.find { |asset| destination === asset.slug }
     end
 
     def build(destination)
@@ -39,6 +43,8 @@ module SiteBuilder
     end
 
     def slugs = @site_map.keys.freeze
+
+    def assets = @assets.dup
 
     private def files(directory, file_pattern) = Dir[File.join(directory, file_pattern)].reject { |file| Pathname(file).directory? }
   end

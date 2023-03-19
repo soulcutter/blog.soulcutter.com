@@ -2,8 +2,9 @@
 
 module Components
   class Layout < Phlex::HTML
-    def initialize(title:)
+    def initialize(title:, **metadata)
       @title = title
+      @metadata = metadata
     end
 
     def template(&block)
@@ -16,7 +17,7 @@ module Components
 
           meta name: "author", content: "Bradley Schaefer"
           meta(name: "description", content: @description) if @description
-          meta(name: "keywords", content: Array(@keywords).join(",")) if @keywords
+          meta(name: "keywords", content: Array(@metadata["categories"]).join(",")) if @metadata.has_key? "categories"
 
           # favicon
           # generated via https://realfavicongenerator.net/ on 2022-12-30

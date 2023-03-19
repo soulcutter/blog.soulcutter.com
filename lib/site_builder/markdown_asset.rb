@@ -1,11 +1,13 @@
 module SiteBuilder
   class MarkdownAsset < Asset
+    private def markdown_page = Components::MarkdownPage.new(read)
+
     def write(destination)
       FileUtils.mkdir_p(File.dirname(destination))
 
       File.write(
         destination,
-        Components::MarkdownPage.new(read).call(view_context: {current_page: slug})
+        markdown_page.call(view_context: {current_page: slug})
       )
     end
 
@@ -15,5 +17,8 @@ module SiteBuilder
         "index.html"
       )
     end
+
+    # TODO: should memoize this
+    def metadata = markdown_page.data
   end
 end

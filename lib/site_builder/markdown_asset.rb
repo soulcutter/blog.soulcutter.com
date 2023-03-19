@@ -5,7 +5,7 @@ module SiteBuilder
 
       File.write(
         destination,
-        Components::Page.new(read).call(view_context: {current_page: slug})
+        Components::MarkdownPage.new(read).call(view_context: {current_page: slug})
       )
     end
 

@@ -1,5 +1,5 @@
 module Components
-  class Page < Phlex::HTML
+  class MarkdownPage < Phlex::HTML
     FRONT_MATTER_PATTERN = /^---\n(?<META>(?:\n|.)+)?\n---/
 
     def initialize(document)

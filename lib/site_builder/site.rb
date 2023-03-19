@@ -5,14 +5,14 @@ module SiteBuilder
       @site_map = {}
     end
 
-    def static_assets(directory:, file_pattern: "**/*", excluding: proc { false })
+    def add_static_assets(directory:, file_pattern: "**/*", excluding: proc { false })
       assets = files(directory, file_pattern).map do |file|
         StaticAsset.new(full_path: file, base_path: directory)
       end
       assets.reject(&excluding).each { |asset| register_asset asset }
     end
 
-    def markdown_assets(directory:, file_pattern: "**/*.md")
+    def add_markdown_assets(directory:, file_pattern: "**/*.md")
       files(directory, file_pattern).each do |file|
         register_asset MarkdownAsset.new(full_path: file, base_path: directory)
       end

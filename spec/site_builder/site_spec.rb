@@ -1,15 +1,15 @@
 RSpec.describe SiteBuilder::Site do
   subject(:site) { SiteBuilder::Site.new }
 
-  context "#static_assets" do
+  context "#add_static_assets" do
     it "filters out assets according to excludes rules" do
       filter = ->(asset) { asset.filename == "site_spec.rb" }
-      site.static_assets(directory: __dir__, excluding: filter)
+      site.add_static_assets(directory: __dir__, excluding: filter)
       expect(site.asset_at(/site_spec/)).to be_nil
     end
 
     it "registers assets in the directory" do
-      site.static_assets(directory: __dir__)
+      site.add_static_assets(directory: __dir__)
       expect(site.asset_at(/site_spec/)).to be
     end
   end

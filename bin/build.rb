@@ -13,9 +13,9 @@ class Build
     SiteBuilder.build(destination: "#{BASE_PATH}/dist") do |site|
       # We need to exclude application.css because tailwindcss handles building that, and two processes
       # both trying to write that specific file is a race condition
-      site.static_assets(directory: "#{BASE_PATH}/assets", excluding: ->(asset) { asset.path == "/application.css" })
-      site.static_assets(directory: "#{BASE_PATH}/pages", file_pattern: "**/*.{jpg,png,gif}")
-      site.markdown_assets(directory: "#{BASE_PATH}/pages")
+      site.add_static_assets(directory: "#{BASE_PATH}/assets", excluding: ->(asset) { asset.path == "/application.css" })
+      site.add_static_assets(directory: "#{BASE_PATH}/pages", file_pattern: "**/*.{jpg,png,gif}")
+      site.add_markdown_assets(directory: "#{BASE_PATH}/pages")
     end
   end
   

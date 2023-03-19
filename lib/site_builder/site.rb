@@ -38,6 +38,8 @@ module SiteBuilder
       end
     end
 
+    def slugs = @site_map.keys.freeze
+
     private def files(directory, file_pattern) = Dir[File.join(directory, file_pattern)].reject { |file| Pathname(file).directory? }
   end
 end

@@ -26,4 +26,13 @@ RSpec.describe SiteBuilder::Site do
       ).to eq(asset)
     end
   end
+
+  specify "#slugs" do
+    asset = SiteBuilder::StaticAsset.new(full_path: "/dev/null")
+    expect(asset.slug).to eq "/dev/null"
+    site.register_asset(asset)
+    site.register_asset(SiteBuilder::StaticAsset.new(full_path: "/srv/www/images/fox.png"))
+
+    expect(site.slugs).to match_array(["/dev/null", "/srv/www/images/fox.png"])
+  end
 end

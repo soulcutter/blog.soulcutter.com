@@ -18,8 +18,8 @@ module SiteBuilder
       end
     end
 
-    def add_index_asset(assets, full_path:)
-      register_asset IndexAsset.new(assets, full_path: full_path)
+    def add_index_asset(assets, full_path:, template: Components::IndexPage)
+      register_asset IndexAsset.new(assets, full_path: full_path, template: template)
     end
 
     def register_asset(asset)

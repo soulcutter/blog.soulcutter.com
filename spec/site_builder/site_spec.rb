@@ -35,4 +35,12 @@ RSpec.describe SiteBuilder::Site do
 
     expect(site.slugs).to match_array(["/dev/null", "/srv/www/images/fox.png"])
   end
+
+  context "#add_index_asset" do
+    it "creates an index page" do
+      site.add_static_assets(directory: __dir__)
+      site.add_index_asset(site.assets, full_path: "/spec/index.html")
+      expect(site.asset_at("/spec/index.html")).to be_an_instance_of SiteBuilder::IndexAsset
+    end
+  end
 end

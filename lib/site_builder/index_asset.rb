@@ -1,8 +1,9 @@
 module SiteBuilder
   class IndexAsset < Asset
-    def initialize(assets, **)
+    def initialize(assets, template: Components::IndexPage, **)
       super(**)
       @assets = assets
+      @template = template
     end
 
     def write(destination)
@@ -10,7 +11,7 @@ module SiteBuilder
 
       File.write(
         destination,
-        Components::IndexPage.new(@assets).call(view_context: {current_page: slug})
+        @template.new(@assets).call(view_context: {current_page: slug})
       )
     end
 

@@ -8,7 +8,6 @@ vscode:
   extensions:
     - connorshea.vscode-ruby-test-adapter
     - hbenl.vscode-test-explorer
-    - rebornix.ruby
     - castwide.solargraph
     - testdouble.vscode-standard-ruby
 

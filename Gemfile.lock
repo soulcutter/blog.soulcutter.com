@@ -110,7 +110,7 @@ GEM
     tilt (2.1.0)
     unicode-display_width (2.4.2)
     webrick (1.8.1)
-    yard (0.9.26)
+    yard (0.9.35)
     zeitwerk (2.6.7)
 
 PLATFORMS
